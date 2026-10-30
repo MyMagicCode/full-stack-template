@@ -1,0 +1,26 @@
+{
+  "name": "full-stack-template",
+  "version": "1.0.0",
+  "description": "A full-stack template for building web applications with a monorepo structure.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev:web": "pnpm --filter=web run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.2.2",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
+  }
+}

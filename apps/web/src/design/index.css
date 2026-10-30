@@ -1,0 +1,266 @@
+@import url("antd/dist/antd.css") layer(antd);
+
+@layer theme, base, antd, components, utilities;
+
+@import "tailwindcss";
+
+
+/*
+ * Design tokens generated from
+ * "src/components/antd-provider/lobeTheme.ts" (Ant Design + Lobe theme).
+ *
+ * Palette tokens keep the index of the source array, e.g.
+ * "lobeGray[12]" -> "--color-lobe-gray-12", so you can use
+ * "bg-lobe-gray-1", "text-lobe-gray-12", "border-lobe-gray-3", ...
+ *
+ * Semantic tokens mirror the Ant Design tokens and reference the palette
+ * through "var()", e.g. "colorText" -> "--color-foreground". Changing a
+ * palette value therefore updates every semantic token at once.
+ *   bg-background  text-foreground  border-border  text-foreground-secondary ...
+ *
+ * "@theme static" keeps every variable in the compiled CSS even when no
+ * utility uses it, so it can also be consumed from TS / inline styles via
+ * "var(--color-...)".
+ *
+ * Values not used by the light theme (defaultAlgorithm) are intentionally
+ * omitted: "lobePrimary.dark", "lobePrimary.darkA", "lobePrimary.lightA",
+ * "lobeColors.gray.dark" (not defined in the source anyway) and the Ant
+ * Design "*Text" color variants, which always equal the base / hover /
+ * active color in this theme.
+ */
+
+@theme static {
+	/* ===== Font families ===== */
+	--font-sans:
+		"HarmonyOS Sans", "Segoe UI", "SF Pro Display", -apple-system,
+		BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+		"Helvetica Neue", sans-serif, "HarmonyOS Sans SC", "PingFang SC",
+		"Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+		"Source Han Sans CN", sans-serif, "Segoe UI Emoji", "Segoe UI Symbol",
+		"Apple Color Emoji", "Twemoji Mozilla", "Noto Color Emoji", "Android Emoji";
+	--font-mono:
+		Hack, ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+		"HarmonyOS Sans SC", "PingFang SC", "Hiragino Sans GB",
+		"Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif,
+		"Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", "Twemoji Mozilla",
+		"Noto Color Emoji", "Android Emoji";
+
+	/*
+	 * Type sizes: Ant Design "fontSize" (14px) matches "text-sm" and
+	 * "fontSizeSM" (12px) matches "text-xs". Ant Design "lineHeight" (1.5714)
+	 * is exposed as "leading-base".
+	 */
+
+	/* ===== Palette ===== */
+	/* primary — lobePrimary.light[0..12] */
+	--color-lobe-primary-0: #ffffff;
+	--color-lobe-primary-1: #f5f5f5;
+	--color-lobe-primary-2: #eeeeee;
+	--color-lobe-primary-3: #cccccc;
+	--color-lobe-primary-4: #aaaaaa;
+	--color-lobe-primary-5: #888888;
+	--color-lobe-primary-6: #666666;
+	--color-lobe-primary-7: #444444;
+	--color-lobe-primary-8: #333333;
+	--color-lobe-primary-9: #222222;
+	--color-lobe-primary-10: #111111;
+	--color-lobe-primary-11: #0b0b0b;
+	--color-lobe-primary-12: #000000;
+
+	/* gray — lobeColors.gray.light[0..12] */
+	--color-lobe-gray-0: #ffffff;
+	--color-lobe-gray-1: #f8f8f8;
+	--color-lobe-gray-2: #eeeeee;
+	--color-lobe-gray-3: #e3e3e3;
+	--color-lobe-gray-4: #dddddd;
+	--color-lobe-gray-5: #cccccc;
+	--color-lobe-gray-6: #bbbbbb;
+	--color-lobe-gray-7: #aaaaaa;
+	--color-lobe-gray-8: #999999;
+	--color-lobe-gray-9: #888888;
+	--color-lobe-gray-10: #666666;
+	--color-lobe-gray-11: #333333;
+	--color-lobe-gray-12: #080808;
+
+	/* gray-a — lobeColors.gray.lightA[0..12] */
+	--color-lobe-gray-a-0: rgba(0, 0, 0, 0.015);
+	--color-lobe-gray-a-1: rgba(0, 0, 0, 0.03);
+	--color-lobe-gray-a-2: rgba(0, 0, 0, 0.06);
+	--color-lobe-gray-a-3: rgba(0, 0, 0, 0.12);
+	--color-lobe-gray-a-4: rgba(0, 0, 0, 0.18);
+	--color-lobe-gray-a-5: rgba(0, 0, 0, 0.24);
+	--color-lobe-gray-a-6: rgba(0, 0, 0, 0.32);
+	--color-lobe-gray-a-7: rgba(0, 0, 0, 0.38);
+	--color-lobe-gray-a-8: rgba(0, 0, 0, 0.44);
+	--color-lobe-gray-a-9: rgba(0, 0, 0, 0.5);
+	--color-lobe-gray-a-10: rgba(0, 0, 0, 0.68);
+	--color-lobe-gray-a-11: rgba(0, 0, 0, 0.84);
+	--color-lobe-gray-a-12: rgba(0, 0, 0, 0.98);
+
+	/* green — lobeColors.green.light[0..12] */
+	--color-lobe-green-0: #ffffff;
+	--color-lobe-green-1: #f4fdeb;
+	--color-lobe-green-2: #e7f8dd;
+	--color-lobe-green-3: #d8f2ce;
+	--color-lobe-green-4: #c7eabd;
+	--color-lobe-green-5: #b4e1ac;
+	--color-lobe-green-6: #a0d79b;
+	--color-lobe-green-7: #89cc8a;
+	--color-lobe-green-8: #71c179;
+	--color-lobe-green-9: #379d4a;
+	--color-lobe-green-10: #007944;
+	--color-lobe-green-11: #003f28;
+	--color-lobe-green-12: #000503;
+
+	/* gold — lobeColors.gold.light[0..12] */
+	--color-lobe-gold-0: #ffffff;
+	--color-lobe-gold-1: #fffdff;
+	--color-lobe-gold-2: #fff9f7;
+	--color-lobe-gold-3: #fff4eb;
+	--color-lobe-gold-4: #ffeedc;
+	--color-lobe-gold-5: #ffe6c8;
+	--color-lobe-gold-6: #ffdcaf;
+	--color-lobe-gold-7: #ffd190;
+	--color-lobe-gold-8: #ffc368;
+	--color-lobe-gold-9: #ee9e0b;
+	--color-lobe-gold-10: #d59300;
+	--color-lobe-gold-11: #6a4900;
+	--color-lobe-gold-12: #070300;
+
+	/* volcano — lobeColors.volcano.light[0..12] */
+	--color-lobe-volcano-0: #ffffff;
+	--color-lobe-volcano-1: #fff7f6;
+	--color-lobe-volcano-2: #ffece9;
+	--color-lobe-volcano-3: #ffded9;
+	--color-lobe-volcano-4: #ffcec5;
+	--color-lobe-volcano-5: #ffbbaf;
+	--color-lobe-volcano-6: #ffa695;
+	--color-lobe-volcano-7: #ff8e78;
+	--color-lobe-volcano-8: #fb745a;
+	--color-lobe-volcano-9: #ec5e41;
+	--color-lobe-volcano-10: #a53716;
+	--color-lobe-volcano-11: #5d1900;
+	--color-lobe-volcano-12: #0c0100;
+
+	/* geekblue — lobeColors.geekblue.light[0..12] */
+	--color-lobe-geekblue-0: #ffffff;
+	--color-lobe-geekblue-1: #fcfbff;
+	--color-lobe-geekblue-2: #f1f5ff;
+	--color-lobe-geekblue-3: #e2ebff;
+	--color-lobe-geekblue-4: #cedfff;
+	--color-lobe-geekblue-5: #b6d0ff;
+	--color-lobe-geekblue-6: #9abeff;
+	--color-lobe-geekblue-7: #78a9ff;
+	--color-lobe-geekblue-8: #4c90ff;
+	--color-lobe-geekblue-9: #0072f5;
+	--color-lobe-geekblue-10: #005ae0;
+	--color-lobe-geekblue-11: #002a8a;
+	--color-lobe-geekblue-12: #00021b;
+
+	/* ===== Semantic colors ===== */
+	/* text — colorText / colorTextBase / colorTextSecondary / colorTextTertiary ... */
+	--color-foreground: var(--color-lobe-gray-12);
+	--color-foreground-secondary: var(--color-lobe-gray-10);
+	--color-foreground-tertiary: var(--color-lobe-gray-8);
+	--color-foreground-quaternary: var(--color-lobe-gray-6);
+	--color-foreground-disabled: var(--color-lobe-gray-6);
+	--color-foreground-inverse: var(--color-lobe-gray-1);
+
+	/* background — colorBgBase / colorBgContainer / colorBgElevated / colorBgLayout ... */
+	--color-background: var(--color-lobe-gray-0);
+	--color-background-layout: var(--color-lobe-gray-1);
+	--color-background-spotlight: var(--color-lobe-gray-4);
+	--color-background-mask: var(--color-lobe-gray-a-8);
+
+	/* border / split / fill / controlOutline */
+	--color-border: var(--color-lobe-gray-3);
+	--color-border-secondary: var(--color-lobe-gray-2);
+	--color-split: var(--color-lobe-gray-2);
+	--color-control-outline: var(--color-lobe-gray-a-3);
+	--color-fill: var(--color-lobe-gray-a-3);
+	--color-fill-secondary: var(--color-lobe-gray-a-2);
+	--color-fill-tertiary: var(--color-lobe-gray-a-1);
+	--color-fill-quaternary: var(--color-lobe-gray-a-0);
+
+	/* primary — colorPrimary / colorPrimaryHover / colorPrimaryBg ... */
+	--color-primary: var(--color-lobe-primary-9);
+	--color-primary-hover: var(--color-lobe-primary-8);
+	--color-primary-active: var(--color-lobe-primary-10);
+	--color-primary-bg: var(--color-lobe-primary-1);
+	--color-primary-bg-hover: var(--color-lobe-primary-2);
+	--color-primary-border: var(--color-lobe-primary-4);
+	--color-primary-border-hover: var(--color-lobe-primary-3);
+
+	/* success — colorSuccess / colorSuccessHover / colorSuccessBg ... */
+	--color-success: var(--color-lobe-green-9);
+	--color-success-hover: var(--color-lobe-green-8);
+	--color-success-active: var(--color-lobe-green-10);
+	--color-success-bg: var(--color-lobe-green-1);
+	--color-success-bg-hover: var(--color-lobe-green-2);
+	--color-success-border: var(--color-lobe-green-4);
+	--color-success-border-hover: var(--color-lobe-green-3);
+
+	/* warning — colorWarning / colorWarningHover / colorWarningBg ... */
+	--color-warning: var(--color-lobe-gold-9);
+	--color-warning-hover: var(--color-lobe-gold-8);
+	--color-warning-active: var(--color-lobe-gold-10);
+	--color-warning-bg: var(--color-lobe-gold-1);
+	--color-warning-bg-hover: var(--color-lobe-gold-2);
+	--color-warning-border: var(--color-lobe-gold-4);
+	--color-warning-border-hover: var(--color-lobe-gold-3);
+
+	/* error — colorError / colorErrorHover / colorErrorBg ... */
+	--color-error: var(--color-lobe-volcano-9);
+	--color-error-hover: var(--color-lobe-volcano-8);
+	--color-error-active: var(--color-lobe-volcano-10);
+	--color-error-bg: var(--color-lobe-volcano-1);
+	--color-error-bg-hover: var(--color-lobe-volcano-2);
+	--color-error-border: var(--color-lobe-volcano-4);
+	--color-error-border-hover: var(--color-lobe-volcano-3);
+
+	/* info — colorInfo / colorInfoHover / colorInfoBg ... */
+	--color-info: var(--color-lobe-geekblue-9);
+	--color-info-hover: var(--color-lobe-geekblue-8);
+	--color-info-active: var(--color-lobe-geekblue-10);
+	--color-info-bg: var(--color-lobe-geekblue-1);
+	--color-info-bg-hover: var(--color-lobe-geekblue-2);
+	--color-info-border: var(--color-lobe-geekblue-4);
+	--color-info-border-hover: var(--color-lobe-geekblue-3);
+
+	/* link — colorLink / colorLinkHover / colorLinkActive */
+	--color-link: var(--color-lobe-geekblue-9);
+	--color-link-hover: var(--color-lobe-geekblue-8);
+	--color-link-active: var(--color-lobe-geekblue-10);
+
+	/* ===== Radius — borderRadiusXS / borderRadiusSM / borderRadius / borderRadiusLG ===== */
+	--radius-xs: 4px;
+	--radius-sm: 6px;
+	--radius-md: 8px;
+	--radius-lg: 12px;
+
+	/* ===== Line height — lineHeight ===== */
+	--leading-base: 1.5714;
+
+	/* ===== Shadows — boxShadow / boxShadowSecondary / boxShadowTertiary ===== */
+	--shadow:
+		0 40px 80px rgba(0, 0, 0, 0.06), 0 20px 40px rgba(0, 0, 0, 0.05),
+		0 10px 20px rgba(0, 0, 0, 0.04), 0 5px 10px rgba(0, 0, 0, 0.03),
+		0 2px 4px rgba(0, 0, 0, 0.02);
+	--shadow-secondary:
+		0 17.5px 23.4px rgba(0, 0, 0, 0.04),
+		0 9.4px 12.5px rgba(0, 0, 0, 0.03), 0 5.25px 7px rgba(0, 0, 0, 0.02),
+		0 2.8px 3.7px -2px rgba(0, 0, 0, 0.01), 0 1.2px 1.5px rgba(0, 0, 0, 0.01);
+	--shadow-tertiary:
+		0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+
+	/* ===== Control sizes — controlHeightSM / controlHeight / controlHeightLG ===== */
+	/* h-control, h-control-sm, h-control-lg */
+	--spacing-control-sm: 28px;
+	--spacing-control: 36px;
+	--spacing-control-lg: 40px;
+	--height-header: 50px;
+}
+
+body {
+	background-color: var(--color-background-layout);
+}

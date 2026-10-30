@@ -1,0 +1,9 @@
+{
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll.biome": "explicit"
+  },
+  "css.lint.unknownAtRules": "ignore",
+  "tailwindCSS.lint.suggestCanonicalClasses": "ignore"
+}
