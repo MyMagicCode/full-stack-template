@@ -24,6 +24,7 @@
     "@ant-design/cssinjs": "catalog:",
     "@ant-design/icons": "catalog:",
     "antd": "catalog:",
+    "classnames": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "tailwindcss": "catalog:"
